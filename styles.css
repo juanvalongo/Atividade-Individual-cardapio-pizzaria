@@ -1,0 +1,36 @@
+body {
+    background-color: #FFF8ED;
+}
+
+h1{
+    color: #8B1E1E;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+h2{
+    color: #8B1E1E;
+    font-family: Arial, sans-serif;
+}
+
+ul{
+    color: #2B2118;
+    font-family: Arial, sans-serif;
+}
+
+footer{
+    color: #D89B2B;
+    font-family: Arial, sans-serif;
+}
+
+.descricao {
+    display: none;
+}
+
+.pizza {
+    cursor: pointer;
+}
+
+.sobremesa {
+    cursor: pointer;
+}
