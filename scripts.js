@@ -57,8 +57,9 @@ fetch(url) //fetch() é uma função do JavaScript usada para fazer uma requisi�
         let listaIngredientes = "";
         for (let i = 1; i <= 20; i++) {
         const ingrediente = receita[`strIngredient${i}`];
+        const medida = receita[`strMeasure${i}`];
         if (ingrediente) {
-        listaIngredientes += `<li>${ingrediente}</li>`;
+        listaIngredientes += `<li>${medida} — ${ingrediente}</li>`;
          }
         } //lógica para percorrer strIngredient1 até strIngredient20 e identificar os ingredientes existentes.
 
@@ -78,7 +79,7 @@ fetch(url) //fetch() é uma função do JavaScript usada para fazer uma requisi�
                 <h3>${receita.strMeal}</h3>
                 <p>Categoria: ${receita.strCategory}</p>
                 <p>Origem: ${receita.strArea}</p>
-                
+
                 <h4>Ingredientes:</h4>
 
                 <ul>
