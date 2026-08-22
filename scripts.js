@@ -47,6 +47,27 @@ const containerReceita = ...
 
 guarda esse elemento em uma variável. */
 
+function traduzirIngrediente(ingrediente) {
+
+    const traducoes = {
+        "Flour": "Farinha",
+        "Water": "Água",
+        "Salt": "Sal",
+        "Olive Oil": "Azeite",
+        "Tomato": "Tomate",
+        "Mozzarella": "Muçarela",
+        "Oregano": "Orégano",
+        "Basil": "Manjericão"
+    };
+
+    return traducoes[ingrediente] || ingrediente; //"Se existir uma tradução para esse ingrediente, retorne a tradução. Caso contrário, retorne o ingrediente original."
+}
+
+console.log(traduzirIngrediente("Flour"));
+console.log(traduzirIngrediente("Water"));
+console.log(traduzirIngrediente("Salt"));
+console.log(traduzirIngrediente("Chorizo"));
+
 fetch(url) //fetch() é uma função do JavaScript usada para fazer uma requisição HTTP. Estamos dizendo: "JavaScript, vá buscar os dados nesse endereço."
     .then(response => response.json()) //A API responde em JSON. Esse comando transforma a resposta em um objeto JavaScript que podemos manipular.
     .then(data => {
