@@ -142,8 +142,10 @@ fetch(url) //fetch() é uma função do JavaScript usada para fazer uma requisi�
 
             <div class="conteudo-receita">
                 <h3>${receita.strMeal}</h3>
-                <p>Categoria: ${receita.strCategory}</p>
-                <p>Origem: ${receita.strArea}</p>
+                <div class="informacoes-receita">
+                    <p><strong>Categoria:</strong> ${receita.strCategory}</p>
+                    <p><strong>Origem:</strong> ${receita.strArea}</p>
+                </div>
 
                 <h4>Ingredientes:</h4>
 
