@@ -54,15 +54,17 @@ fetch(url) //fetch() é uma função do JavaScript usada para fazer uma requisi�
 
         const receita = data.meals[indice]; // A variável receita recebe a receita localizada no array data.meals na posição indicada pela variável indice. Como indice foi gerado aleatoriamente na linha anterior, essa instrução seleciona uma das receitas retornadas pela API de forma aleatória. Por exemplo, se a API retornar três receitas, os índices possíveis serão 0, 1 e 2, e data.meals[indice] acessará a receita correspondente ao índice sorteado.
 
+        let listaIngredientes = "";
         for (let i = 1; i <= 20; i++) {
         const ingrediente = receita[`strIngredient${i}`];
         if (ingrediente) {
-        console.log(ingrediente);
+        listaIngredientes += `<li>${ingrediente}</li>`;
          }
-        }
+        } //lógica para percorrer strIngredient1 até strIngredient20 e identificar os ingredientes existentes.
 
         console.log(receita.strMeal);
         console.log(receita.strMealThumb);
+
         containerReceita.innerHTML = `
         <div class="card-receita">
 
@@ -76,6 +78,12 @@ fetch(url) //fetch() é uma função do JavaScript usada para fazer uma requisi�
                 <h3>${receita.strMeal}</h3>
                 <p>Categoria: ${receita.strCategory}</p>
                 <p>Origem: ${receita.strArea}</p>
+                
+                <h4>Ingredientes:</h4>
+
+                <ul>
+                    ${listaIngredientes}
+                </ul>
             </div>
            
         </div>
