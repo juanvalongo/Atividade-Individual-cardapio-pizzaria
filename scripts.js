@@ -124,7 +124,7 @@ fetch(url) //fetch() é uma função do JavaScript usada para fazer uma requisi�
             if (ingrediente) {
                 const medidaTraduzida = traduzirMedida(medida);
                 const ingredienteTraduzido = traduzirIngrediente(ingrediente);    
-                listaIngredientes += `<li>${medidaTraduzida} — ${ingredienteTraduzido}</li>`;
+                listaIngredientes += `<li>${ingredienteTraduzido} — ${medidaTraduzida}</li>`;
             }
         } //lógica para percorrer strIngredient1 até strIngredient20 e identificar os ingredientes existentes.
 
