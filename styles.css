@@ -53,3 +53,21 @@ footer{
     height: 187.5px;
     object-fit: cover;
 }
+
+.card-receita {
+    width: 90%;
+    max-width: 400px; /*O card ocupará até 90% da largura disponível. Isso é importante para dispositivos móveis porque evita que o card fique grudado nas bordas da tela.*/
+    margin: 20px auto; /*O 20px cria espaço acima e abaixo. O auto nas laterais faz o navegador centralizar o card.*/
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden; /*Essa propriedade é importante porque temos uma imagem dentro do card. Ela faz com que o conteúdo respeite o arredondamento dos cantos do card.*/
+}
+
+.conteudo-receita {
+    padding: 20px; /*Cria espaço interno para que o texto não fique encostado nas bordas.*/
+}
+
+.sugestao-chef {
+    text-align: center;
+    
+}
