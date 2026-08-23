@@ -87,3 +87,18 @@ footer{
     margin: 5px 0;
     color: #182b24;
 }
+
+.conteudo-receita h4 {
+    color: #8B1E1E;
+    margin-bottom: 10px;
+}
+
+.conteudo-receita ul { /*Afeta apenas os <ul> que estão dentro de .conteudo-receita.*/
+    padding-left: 20px;
+    margin-top: 0;
+}
+
+.conteudo-receita li {
+    margin-bottom: 5px;
+    color: #2B2118;
+}
