@@ -117,6 +117,15 @@ fetch(url) //fetch() é uma função do JavaScript usada para fazer uma requisi�
 
         const receita = data.meals[indice]; // A variável receita recebe a receita localizada no array data.meals na posição indicada pela variável indice. Como indice foi gerado aleatoriamente na linha anterior, essa instrução seleciona uma das receitas retornadas pela API de forma aleatória. Por exemplo, se a API retornar três receitas, os índices possíveis serão 0, 1 e 2, e data.meals[indice] acessará a receita correspondente ao índice sorteado.
 
+        let idPizza;
+        if (receita.strMeal === "Cassava pizza") {
+            idPizza = "cassava-pizza";
+        } else if (receita.strMeal === "Matambre a la Pizza") {
+            idPizza = "matambre-a-la-pizza";
+        } else if (receita.strMeal === "Pizza Express Margherita") {
+            idPizza = "pizza-express-margherita";
+        }
+        
         let listaIngredientes = "";
         for (let i = 1; i <= 20; i++) {
             const ingrediente = receita[`strIngredient${i}`];
@@ -152,6 +161,11 @@ fetch(url) //fetch() é uma função do JavaScript usada para fazer uma requisi�
                 <ul>
                     ${listaIngredientes}
                 </ul>
+
+                <p class="link-cardapio" id="link-cardapio">
+                    Clique para ver esta pizza no cardápio →
+                </p>
+
             </div>
            
         </div>
@@ -165,6 +179,14 @@ fetch(url) //fetch() é uma função do JavaScript usada para fazer uma requisi�
          inserir valores de variáveis ou propriedades diretamente no conteúdo. */
          /*"A imagem fornecida pela API foi otimizada utilizando a versão medium disponibilizada pelo servidor da TheMealDB, 
           reduzindo o tamanho do recurso transferido sem comprometer a integração dinâmica da aplicação."*/
+
+        const linkCardapio = document.querySelector("#link-cardapio"); //Procura no HTML o elemento que acabamos de criar: <p id="link-cardapio"> e guarda esse elemento na variável linkCardapio.
+
+        linkCardapio.addEventListener("click", function() { //"Quando o usuário clicar no linkCardapio, execute o código que está dentro das {}."
+            const pizza = document.getElementById(idPizza); //Dentro do evento, acontece uma das partes mais interessantes: primeiro, const pizza = document.getElementById(idPizza); busca no HTML o elemento correspondente à pizza sorteada pela API. Por exemplo, se a API sorteou Cassava pizza e anteriormente definimos idPizza = "cassava-pizza", então document.getElementById(idPizza) é equivalente a document.getElementById("cassava-pizza"). Dessa forma, o código consegue encontrar no HTML o elemento <li id="cassava-pizza" class="pizza">, que corresponde à pizza sorteada.
+            pizza.scrollIntoView(); //manda o navegador rolar a página até aquele elemento.
+        });  
+
     });
 
     
