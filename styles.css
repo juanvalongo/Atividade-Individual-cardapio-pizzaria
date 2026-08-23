@@ -49,9 +49,9 @@ footer{
 
 .imagem-receita {
     width: 100%;
-    max-width: 300px;
     height: 187.5px;
     object-fit: cover;
+    display: block;
 }
 
 .card-receita {
