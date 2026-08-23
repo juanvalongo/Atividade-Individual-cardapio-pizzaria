@@ -31,7 +31,7 @@ ul{
 }
 
 footer{
-    color: #D89B2B;
+    color: #2B2118;
     font-family: Arial, sans-serif;
 }
 
@@ -101,4 +101,9 @@ footer{
 .conteudo-receita li {
     margin-bottom: 5px;
     color: #2B2118;
+}
+
+.menu-lateral a {
+    display: inline-block;
+    padding: 10px;
 }
