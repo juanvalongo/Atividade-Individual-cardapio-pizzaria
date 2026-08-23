@@ -71,3 +71,19 @@ footer{
     text-align: center;
     
 }
+
+.conteudo-receita h3 {
+    color: #8B1E1E;
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.informacoes-receita {
+    margin-bottom: 20px;
+}
+
+.informacoes-receita p { /*Seleciona e altera apenas os <p> que esteja dentro de .informacoes-receita.*/
+    margin: 5px 0;
+    color: #182b24;
+}
