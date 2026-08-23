@@ -135,7 +135,7 @@ fetch(url) //fetch() é uma função do JavaScript usada para fazer uma requisi�
         <div class="card-receita">
 
             <img 
-                src="${receita.strMealThumb}" 
+                src="${receita.strMealThumb}/medium" 
                 alt="${receita.strMeal}"
                 class="imagem-receita"
             >
@@ -163,6 +163,8 @@ fetch(url) //fetch() é uma função do JavaScript usada para fazer uma requisi�
          As expressões ${...} permitem inserir dinamicamente os valores das propriedades do objeto receita dentro do HTML. 
          As crases (`) utilizadas delimitam uma template string, permitindo escrever HTML dentro do JavaScript e 
          inserir valores de variáveis ou propriedades diretamente no conteúdo. */
+         /*"A imagem fornecida pela API foi otimizada utilizando a versão medium disponibilizada pelo servidor da TheMealDB, 
+          reduzindo o tamanho do recurso transferido sem comprometer a integração dinâmica da aplicação."*/
     });
 
     
