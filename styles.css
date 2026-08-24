@@ -107,3 +107,9 @@ footer{
     display: inline-block;
     padding: 10px;
 }
+
+.link-cardapio {
+    color: #8B1E1E;
+    font-weight: bold;
+    cursor: pointer; /*Quando o usuário passar o mouse sobre o texto, o cursor muda para a "mãozinha". Isso fornece uma indicação visual importante: "Este elemento pode ser clicado."*/
+}
