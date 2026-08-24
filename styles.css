@@ -39,19 +39,21 @@ footer{
     display: none;
 }
 
-.pizza {
+.pizza strong,
+.pizza .descricao {
     cursor: pointer;
 }
 
-.pizza:hover {
+.pizza strong:hover {
     text-decoration: underline;
 }
 
-.sobremesa {
+.sobremesa strong,
+.sobremesa .descricao {
     cursor: pointer;
 }
 
-.sobremesa:hover {
+.sobremesa strong:hover {
     text-decoration: underline;
 }
 
@@ -69,6 +71,7 @@ footer{
     background-color: white;
     border-radius: 10px;
     overflow: hidden; /*Essa propriedade é importante porque temos uma imagem dentro do card. Ela faz com que o conteúdo respeite o arredondamento dos cantos do card.*/
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /*"Crie uma sombra abaixo do card, levemente espalhada e relativamente suave."*/
 }
 
 .conteudo-receita {

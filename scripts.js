@@ -1,30 +1,39 @@
 const pizzas = document.querySelectorAll(".pizza");
 
 pizzas.forEach(function(pizza) {
-    pizza.addEventListener("click", function() {
-        const descricao = pizza.querySelector(".descricao");
+    const nome = pizza.querySelector("strong");
+    const descricao = pizza.querySelector(".descricao");
 
+    function alternarDescricao() {
         if (descricao.style.display === "none") {
             descricao.style.display = "block";
         } else {
             descricao.style.display = "none";
         }
-    });
-}); 
+    }
+
+    nome.addEventListener("click", alternarDescricao);
+    descricao.addEventListener("click", alternarDescricao);
+});
+
 
 const sobremesas = document.querySelectorAll(".sobremesa");
 
 sobremesas.forEach(function(sobremesa) {
-    sobremesa.addEventListener("click", function() {
-        const descricao = sobremesa.querySelector(".descricao");
+    const nome = sobremesa.querySelector("strong");
+    const descricao = sobremesa.querySelector(".descricao");
 
+    function alternarDescricao() {
         if (descricao.style.display === "none") {
             descricao.style.display = "block";
         } else {
             descricao.style.display = "none";
         }
-    });
-}); 
+    }
+
+    nome.addEventListener("click", alternarDescricao);
+    descricao.addEventListener("click", alternarDescricao);
+});
 
 const url = "https://www.themealdb.com/api/json/v1/1/search.php?s=pizza"; //Isso simplesmente guarda o endereço da API em uma variável.
 
