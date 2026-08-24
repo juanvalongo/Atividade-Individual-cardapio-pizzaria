@@ -12,6 +12,7 @@ h1{
     font-size: 32px;
     margin: 25px 15px 20px;
     line-height: 1.2;
+    letter-spacing: 1px;
 }
 
 
@@ -90,11 +91,21 @@ footer p {
     text-decoration: underline;
 }
 
+.pizza .descricao,
+.sobremesa .descricao {
+    color: #5C5148;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 6px 0 0;
+}
+
 .categoria-cardapio {
     color: #8B1E1E;
     font-family: Arial, sans-serif;
     font-size: 20px;
     margin: 25px 15px 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #E5D8C8;
 }
 
 .imagem-receita {
