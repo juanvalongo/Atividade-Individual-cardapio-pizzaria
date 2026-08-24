@@ -43,8 +43,16 @@ footer{
     cursor: pointer;
 }
 
+.pizza:hover {
+    text-decoration: underline;
+}
+
 .sobremesa {
     cursor: pointer;
+}
+
+.sobremesa:hover {
+    text-decoration: underline;
 }
 
 .imagem-receita {
@@ -113,3 +121,9 @@ footer{
     font-weight: bold;
     cursor: pointer; /*Quando o usuário passar o mouse sobre o texto, o cursor muda para a "mãozinha". Isso fornece uma indicação visual importante: "Este elemento pode ser clicado."*/
 }
+
+.link-cardapio:hover {
+    text-decoration: underline;
+} /*.link-cardapio:hover seleciona os elementos que possuem a classe link-cardapio enquanto o mouse estiver sobre eles. 
+Assim, ao passar o mouse sobre o texto, a propriedade text-decoration: underline; adiciona um sublinhado, 
+criando um feedback visual familiar, semelhante ao comportamento dos links tradicionais.*/
