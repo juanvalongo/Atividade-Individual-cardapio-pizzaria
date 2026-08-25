@@ -5,11 +5,7 @@ pizzas.forEach(function(pizza) {
     const descricao = pizza.querySelector(".descricao");
 
     function alternarDescricao() {
-        if (descricao.style.display === "none") {
-            descricao.style.display = "block";
-        } else {
-            descricao.style.display = "none";
-        }
+        descricao.classList.toggle("aberta");
     }
 
     nome.addEventListener("click", alternarDescricao);
@@ -24,11 +20,7 @@ sobremesas.forEach(function(sobremesa) {
     const descricao = sobremesa.querySelector(".descricao");
 
     function alternarDescricao() {
-        if (descricao.style.display === "none") {
-            descricao.style.display = "block";
-        } else {
-            descricao.style.display = "none";
-        }
+        descricao.classList.toggle("aberta");
     }
 
     nome.addEventListener("click", alternarDescricao);
@@ -195,7 +187,7 @@ fetch(url) //fetch() é uma função do JavaScript usada para fazer uma requisi�
             const pizza = document.getElementById(idPizza); //Dentro do evento, acontece uma das partes mais interessantes: primeiro, const pizza = document.getElementById(idPizza); busca no HTML o elemento correspondente à pizza sorteada pela API. Por exemplo, se a API sorteou Cassava pizza e anteriormente definimos idPizza = "cassava-pizza", então document.getElementById(idPizza) é equivalente a document.getElementById("cassava-pizza"). Dessa forma, o código consegue encontrar no HTML o elemento <li id="cassava-pizza" class="pizza">, que corresponde à pizza sorteada.
             
             const descricao = pizza.querySelector(".descricao");
-            descricao.style.display = "block";
+            descricao.classList.add("aberta");
                         
             pizza.scrollIntoView({ //manda o navegador rolar a página até aquele elemento.
                 behavior: "smooth", //O smooth faz a página rolar suavemente, em vez de simplesmente "pular".

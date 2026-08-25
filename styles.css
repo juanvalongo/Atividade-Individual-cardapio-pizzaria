@@ -56,8 +56,22 @@ footer p {
     margin: 6px 0;
 }
 
+footer a {
+    color: #8B1E1E;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
 .descricao {
     display: none;
+}
+
+.descricao.aberta {
+    display: block;
 }
 
 .pizza,
