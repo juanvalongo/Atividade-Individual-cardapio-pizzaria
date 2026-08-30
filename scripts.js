@@ -198,5 +198,16 @@ fetch(url) //fetch() é uma função do JavaScript usada para fazer uma requisi�
 
     });
 
-    
+if ("serviceWorker" in navigator) { //verificamos se o navegador possui suporte a Service Workers.
+    window.addEventListener("load", function() { //esperamos a página terminar de carregar.
+        navigator.serviceWorker.register("service-worker.js") //faz o registro do nosso arquivo.
+            .then(function() {
+                console.log("Service Worker registrado com sucesso.");
+            })
+            .catch(function(erro) {
+                console.log("Erro ao registrar o Service Worker:", erro);
+            });
+    });
+}    
+
   
