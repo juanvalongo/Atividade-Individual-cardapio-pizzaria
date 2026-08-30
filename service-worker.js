@@ -19,3 +19,12 @@ self.addEventListener("install", function(event) {
             })
     );
 });
+
+self.addEventListener("fetch", function(event) {
+    event.respondWith(
+        caches.match(event.request) //Esse recurso que o navegador está tentando acessar está no meu cache?
+            .then(function(resposta) {
+                return resposta || fetch(event.request); //Se estiver: return resposta; ele entrega a versão armazenada no cache.  
+        })                                                //Se não estiver: return fetch(event.request); ele tenta buscar normalmente pela rede.       
+    );  
+});
