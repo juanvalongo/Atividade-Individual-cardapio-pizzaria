@@ -196,7 +196,20 @@ fetch(url) //fetch() é uma função do JavaScript usada para fazer uma requisi�
             
         });  
 
-    });
+        })
+        .catch(function(erro) {
+            console.log("Não foi possível carregar a receita:", erro);
+
+            containerReceita.innerHTML = `
+                <div class="card-receita">
+                    <div class="conteudo-receita">
+                        <h3>🍕 Sugestão do Chef</h3>
+                        <p>Não foi possível carregar uma sugestão no momento.</p>
+                        <p>Verifique sua conexão com a internet e tente novamente.</p>
+                    </div>
+                </div>
+            `;
+        });
 
 if ("serviceWorker" in navigator) { //verificamos se o navegador possui suporte a Service Workers.
     window.addEventListener("load", function() { //esperamos a página terminar de carregar.

@@ -1,4 +1,4 @@
-const CACHE_NAME = "pizzaria-patio-v1"; //Criamos primeiro um nome para o nosso cache. O v1 representa a versão do cache.
+const CACHE_NAME = "pizzaria-patio-v3"; //Criamos primeiro um nome para o nosso cache. O v1 representa a versão do cache.
 
 const ARQUIVOS_CACHE = [ //Depois criamos uma lista dos arquivos fundamentais para nossa aplicação
     "index.html",
@@ -21,6 +21,14 @@ self.addEventListener("install", function(event) {
 });
 
 self.addEventListener("fetch", function(event) {
+
+    if (event.request.url.includes("themealdb.com")) {
+        event.respondWith(
+            fetch(event.request)
+        );
+        return;
+    }
+
     event.respondWith(
         caches.match(event.request) //Esse recurso que o navegador está tentando acessar está no meu cache?
             .then(function(resposta) {
