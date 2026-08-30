@@ -1,4 +1,4 @@
-const CACHE_NAME = "pizzaria-patio-v3"; //Criamos primeiro um nome para o nosso cache. O v1 representa a versão do cache.
+const CACHE_NAME = "pizzaria-patio-v5"; //Criamos primeiro um nome para o nosso cache. O v5 representa a versão do cache.
 
 const ARQUIVOS_CACHE = [ //Depois criamos uma lista dos arquivos fundamentais para nossa aplicação
     "index.html",
@@ -18,6 +18,22 @@ self.addEventListener("install", function(event) {
                 return cache.addAll(ARQUIVOS_CACHE); //solicita que esses arquivos sejam armazenados nele.
             })
     );
+    self.skipWaiting(); //Não fique aguardando o Service Worker antigo terminar. Quero que esta nova versão seja ativada.
+});
+
+self.addEventListener("activate", function(event) {
+    event.waitUntil(
+        caches.keys().then(function(nomesCaches) {
+            return Promise.all(
+                nomesCaches.map(function(nomeCache) {
+                    if (nomeCache !== CACHE_NAME) {
+                        return caches.delete(nomeCache);
+                    }
+                })
+            );
+        })
+    );
+    self.clients.claim(); //Depois de ativado, passe a controlar imediatamente as páginas abertas.
 });
 
 self.addEventListener("fetch", function(event) {
