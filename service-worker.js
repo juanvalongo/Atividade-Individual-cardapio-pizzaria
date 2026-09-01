@@ -1,4 +1,4 @@
-const CACHE_NAME = "pizzaria-patio-v5"; //Criamos primeiro um nome para o nosso cache. O v5 representa a versão do cache.
+const CACHE_NAME = "pizzaria-patio-v7"; //Criamos primeiro um nome para o nosso cache. O v7 representa a versão do cache.
 
 const ARQUIVOS_CACHE = [ //Depois criamos uma lista dos arquivos fundamentais para nossa aplicação
     "index.html",
@@ -39,10 +39,37 @@ self.addEventListener("activate", function(event) {
 self.addEventListener("fetch", function(event) {
 
     if (event.request.url.includes("themealdb.com")) {
-        event.respondWith(
+         event.respondWith(
             fetch(event.request)
+                .then(function(resposta) {
+
+                    const respostaClone = resposta.clone();
+
+                    caches.open(CACHE_NAME)
+                        .then(function(cache) {
+                            cache.put(event.request, respostaClone);
+                        });
+
+                    return resposta;
+                })
+                .catch(function() {
+                    return caches.match(event.request);
+                })
         );
+
         return;
+    }
+
+     if (event.request.mode === "navigate") {
+
+        event.respondWith(
+            caches.match("index.html")
+                .then(function(resposta) {
+                    return resposta || fetch(event.request);
+                })
+        );
+
+        return;  //Se o usuário estiver tentando abrir uma página, entregue o index.html que está no cache.
     }
 
     event.respondWith(
