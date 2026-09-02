@@ -48,6 +48,8 @@ const containerReceita = ...
 
 guarda esse elemento em uma variável. */
 
+if (containerReceita) {
+
 function traduzirIngrediente(ingrediente) {
 
     const traducoes = {
@@ -210,7 +212,8 @@ fetch(url) //fetch() é uma função do JavaScript usada para fazer uma requisi�
                 </div>
             `;
         });
-
+    } 
+       
 if ("serviceWorker" in navigator) { //verificamos se o navegador possui suporte a Service Workers.
     window.addEventListener("load", function() { //esperamos a página terminar de carregar.
         navigator.serviceWorker.register("service-worker.js") //faz o registro do nosso arquivo.

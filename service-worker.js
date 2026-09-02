@@ -21,20 +21,20 @@ self.addEventListener("install", function(event) {
     self.skipWaiting(); //Não fique aguardando o Service Worker antigo terminar. Quero que esta nova versão seja ativada.
 });
 
-// self.addEventListener("activate", function(event) {
-//     event.waitUntil(
-//         caches.keys().then(function(nomesCaches) {
-//             return Promise.all(
-//                 nomesCaches.map(function(nomeCache) {
-//                     if (nomeCache !== CACHE_NAME) {
-//                         return caches.delete(nomeCache);
-//                     }
-//                 })
-//             );
-//         })
-//     );
-//     self.clients.claim(); //Depois de ativado, passe a controlar imediatamente as páginas abertas.
-// });
+//  self.addEventListener("activate", function(event) {
+//      event.waitUntil(
+//          caches.keys().then(function(nomesCaches) {
+//              return Promise.all(
+//                  nomesCaches.map(function(nomeCache) {
+//                      if (nomeCache !== CACHE_NAME) {
+//                          return caches.delete(nomeCache);
+//                      }
+//                  })
+//              );
+//          })
+//      );
+//      self.clients.claim(); //Depois de ativado, passe a controlar imediatamente as páginas abertas.
+//  });
 
 self.addEventListener("fetch", function(event) {
 
