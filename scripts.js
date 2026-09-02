@@ -223,10 +223,36 @@ if ("serviceWorker" in navigator) { //verificamos se o navegador possui suporte 
     });
 }
 
-
 const botaoLocalizacao = document.querySelector("#btn-localizacao");
 const resultadoLocalizacao = document.querySelector("#resultado-localizacao");
 
+// Localização fictícia da Pizzaria Pátio dos Sabores.
+// Ponto de referência: Shopping RioMar Recife.
+// As coordenadas são utilizadas apenas para calcular a distância
+// entre o usuário e o estabelecimento.
+const LATITUDE_PIZZARIA = -8.086211;
+const LONGITUDE_PIZZARIA = -34.892899;
+
+/*A fórmula que vamos utilizar é a fórmula de Haversine. 
+Ela é apropriada para calcular a distância entre dois pontos da superfície da Terra a partir de latitude e longitude.*/
+function calcularDistancia(lat1, lon1, lat2, lon2) {
+    const raioTerra = 6371;
+
+    const diferencaLatitude = (lat2 - lat1) * Math.PI / 180;
+    const diferencaLongitude = (lon2 - lon1) * Math.PI / 180;
+
+    const a =
+        Math.sin(diferencaLatitude / 2) ** 2 +
+        Math.cos(lat1 * Math.PI / 180) *
+        Math.cos(lat2 * Math.PI / 180) *
+        Math.sin(diferencaLongitude / 2) ** 2;
+
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+    return raioTerra * c;
+}
+
+if (botaoLocalizacao) {
 botaoLocalizacao.addEventListener("click", function() {
 
     if (!navigator.geolocation) {
@@ -242,14 +268,20 @@ botaoLocalizacao.addEventListener("click", function() {
 
     navigator.geolocation.getCurrentPosition(
         function(posicao) {
-
+                        
             const latitude = posicao.coords.latitude;
             const longitude = posicao.coords.longitude;
 
+            const distancia = calcularDistancia(
+                latitude,
+                longitude,
+                LATITUDE_PIZZARIA,
+                LONGITUDE_PIZZARIA
+            );
+           
             resultadoLocalizacao.innerHTML = `
                 <p>📍 Localização encontrada!</p>
-                <p>Latitude: ${latitude}</p>
-                <p>Longitude: ${longitude}</p>
+                <p>Você está a aproximadamente <strong>${distancia.toFixed(1)} km</strong> da Pizzaria Pátio dos Sabores.</p>
             `;
         },
 
@@ -265,6 +297,7 @@ botaoLocalizacao.addEventListener("click", function() {
     );
 
 }); 
+}
 
 /*Ao clicar em “📍 Ver minha localização” (no index.html), 
 o código utiliza o navigator.geolocation para solicitar ao navegador a permissão de acesso à localização do usuário; 

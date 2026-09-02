@@ -1,4 +1,4 @@
-const CACHE_NAME = "pizzaria-patio-v8"; //Criamos primeiro um nome para o nosso cache. O v8 representa a versão do cache.
+const CACHE_NAME = "pizzaria-patio-v10"; //Criamos primeiro um nome para o nosso cache. O v9 representa a versão do cache.
 
 const ARQUIVOS_CACHE = [ //Depois criamos uma lista dos arquivos fundamentais para nossa aplicação
     "index.html",
