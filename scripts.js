@@ -221,6 +221,55 @@ if ("serviceWorker" in navigator) { //verificamos se o navegador possui suporte 
                 console.log("Erro ao registrar o Service Worker:", erro);
             });
     });
-}    
+}
+
+
+const botaoLocalizacao = document.querySelector("#btn-localizacao");
+const resultadoLocalizacao = document.querySelector("#resultado-localizacao");
+
+botaoLocalizacao.addEventListener("click", function() {
+
+    if (!navigator.geolocation) {
+        resultadoLocalizacao.innerHTML = `
+            <p>Seu navegador não oferece suporte à geolocalização.</p>
+        `;
+        return;
+    }
+
+    resultadoLocalizacao.innerHTML = `
+        <p>Obtendo sua localização...</p>
+    `;
+
+    navigator.geolocation.getCurrentPosition(
+        function(posicao) {
+
+            const latitude = posicao.coords.latitude;
+            const longitude = posicao.coords.longitude;
+
+            resultadoLocalizacao.innerHTML = `
+                <p>📍 Localização encontrada!</p>
+                <p>Latitude: ${latitude}</p>
+                <p>Longitude: ${longitude}</p>
+            `;
+        },
+
+        function(erro) {
+
+            console.log("Erro ao obter localização:", erro);
+
+            resultadoLocalizacao.innerHTML = `
+                <p>Não foi possível obter sua localização.</p>
+                <p>Verifique se a permissão de localização foi concedida.</p>
+            `;
+        }
+    );
+
+}); 
+
+/*Ao clicar em “📍 Ver minha localização” (no index.html), 
+o código utiliza o navigator.geolocation para solicitar ao navegador a permissão de acesso à localização do usuário; 
+se a permissão for concedida, ele obtém as coordenadas de latitude (posicao.coords.latitude) e longitude (posicao.coords.longitude), 
+que serão utilizadas na Etapa 9 para calcular a distância até a pizzaria; caso a permissão seja negada, 
+o código exibe uma mensagem informando que não foi possível obter a localização.*/
 
   

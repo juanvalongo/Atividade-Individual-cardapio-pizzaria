@@ -1,4 +1,4 @@
-const CACHE_NAME = "pizzaria-patio-v7"; //Criamos primeiro um nome para o nosso cache. O v7 representa a versão do cache.
+const CACHE_NAME = "pizzaria-patio-v8"; //Criamos primeiro um nome para o nosso cache. O v8 representa a versão do cache.
 
 const ARQUIVOS_CACHE = [ //Depois criamos uma lista dos arquivos fundamentais para nossa aplicação
     "index.html",
@@ -63,7 +63,7 @@ self.addEventListener("fetch", function(event) {
      if (event.request.mode === "navigate") {
 
         event.respondWith(
-            caches.match("index.html")
+            caches.match(event.request)
                 .then(function(resposta) {
                     return resposta || fetch(event.request);
                 })
