@@ -81,7 +81,11 @@ self.addEventListener("fetch", function(event) {
         );
 
         return;
-    }
+    }                      /*Esse código trata as requisições de navegação verificando primeiro se a página solicitada já está no cache; 
+                        se estiver, ela é retornada diretamente. Caso a requisição seja feita pela raiz (/) 
+                        e não exista essa rota no cache, o código identifica o caminho e entrega o index.html como página inicial. 
+                        Para outras páginas, como /bebidas.html e /sobremesas.html, o comportamento continua normal: primeiro procura no cache e, 
+                        se não encontrar, faz a requisição pela rede. A integração com a TheMealDB permanece exatamente como está.*/
 
     event.respondWith(
         caches.match(event.request) //Esse recurso que o navegador está tentando acessar está no meu cache?
