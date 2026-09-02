@@ -65,11 +65,22 @@ self.addEventListener("fetch", function(event) {
         event.respondWith(
             caches.match(event.request)
                 .then(function(resposta) {
-                    return resposta || fetch(event.request);
+
+                    if (resposta) {
+                        return resposta;
+                    }
+
+                    const url = new URL(event.request.url);
+
+                    if (url.pathname === "/") {
+                        return caches.match("/index.html");
+                    }
+
+                    return fetch(event.request);
                 })
         );
 
-        return;  //Se o usuário estiver tentando abrir uma página, entregue o index.html que está no cache.
+        return;
     }
 
     event.respondWith(
