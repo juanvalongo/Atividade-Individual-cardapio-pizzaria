@@ -79,9 +79,14 @@ footer a:hover {
     display: block;
 }
 
-.pizza,
 .sobremesa,
-.bebida {
+.bebida,
+.pizza {
+    background-color: #FFFFFF;
+    border: 1px solid #E5D8C8;
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
     margin-bottom: 12px;
 }
 
