@@ -198,34 +198,55 @@ footer a:hover {
     line-height: 1.4;
 }
 
+/*Início da seção menu lateral*/
+
 .menu-lateral {
     text-align: center;
     margin: 30px 0;
 }
 
-.menu-lateral a {
-    display: inline-block;
-    padding: 10px 18px;
-    margin: 5px;
-    color: #8B1E1E;
-    background-color: #FFF8ED;
-    border: 1px solid #8B1E1E;
-    border-radius: 8px;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.menu-lateral a:hover {
-    color: white;
-    background-color: #8B1E1E;
-}
-
 .menu-lateral ul {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
     list-style: none;
     padding: 0;
     margin: 0;
 }
+
+.menu-lateral a {
+    display: block;
+    padding: 12px 20px;
+    color: #8B1E1E;
+    background-color: #FFFFFF;
+    border: 1px solid #E5D8C8;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s, background-color 0.2s, color 0.2s;
+}
+
+.menu-lateral a:hover {
+    color: #FFFFFF;
+    background-color: #8B1E1E;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+    .menu-lateral ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu-lateral a {
+        width: 80%;
+        max-width: 300px;
+    }
+}
+
+/*Fim da seção menu lateral*/
 
 .link-cardapio {
     display: inline-block;
