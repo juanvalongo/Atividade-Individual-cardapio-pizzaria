@@ -316,3 +316,13 @@ footer a:hover {
 }
 /*Fim Seção de localização */
 
+.logo-principal {
+    margin: 0;
+    padding: 0;
+}
+
+.logo-principal img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
