@@ -239,6 +239,22 @@ footer a:hover {
     opacity: 0.9;
 }
 
+.grid-cardapio {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+    margin: 0;
+    list-style: none;
+}
+
+@media (max-width: 600px) {
+    .grid-cardapio {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+    }
+}
+
 /*Início Seção de localização */
 .localizacao {
     margin: 40px auto;
