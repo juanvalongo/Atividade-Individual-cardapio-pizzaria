@@ -213,7 +213,7 @@ fetch(url) //fetch() é uma função do JavaScript usada para fazer uma requisi�
             `;
         });
     } 
-       
+
 if ("serviceWorker" in navigator) { //verificamos se o navegador possui suporte a Service Workers.
     window.addEventListener("load", function() { //esperamos a página terminar de carregar.
         navigator.serviceWorker.register("service-worker.js") //faz o registro do nosso arquivo.
@@ -281,6 +281,8 @@ botaoLocalizacao.addEventListener("click", function() {
                 LATITUDE_PIZZARIA,
                 LONGITUDE_PIZZARIA
             );
+
+            botaoLocalizacao.textContent = "🔄 Consultar novamente"; //Vai alterar o texto original do button id="btn-localizacao" (no HTML), após o usuário ter obtido pela primeira vez a localização.
            
             resultadoLocalizacao.innerHTML = `
                 <p>📍 Localização encontrada!</p>

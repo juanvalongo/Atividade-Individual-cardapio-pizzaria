@@ -227,3 +227,59 @@ footer a:hover {
 } /*.link-cardapio:hover seleciona os elementos que possuem a classe link-cardapio enquanto o mouse estiver sobre eles. 
 Assim, ao passar o mouse sobre o texto, a propriedade text-decoration: underline; adiciona um sublinhado, 
 criando um feedback visual familiar, semelhante ao comportamento dos links tradicionais.*/
+
+/*Início Seção de localização */
+.localizacao {
+    margin: 40px auto;
+    padding: 25px;
+    max-width: 500px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.localizacao h2 {
+    margin-bottom: 12px;
+}
+
+.texto-localizacao {
+    margin-bottom: 20px;
+}
+
+#btn-localizacao {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #8B1E1E;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+#btn-localizacao:hover {
+    transform: scale(1.03);
+    opacity: 0.9;
+}
+
+.resultado-localizacao {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #FFF8ED;
+    border: 1px solid #ead8c5;
+}
+
+.resultado-localizacao p {
+    margin: 8px 0;
+}
+
+.resultado-localizacao strong {
+    display: block;
+    margin: 8px 0;
+    font-size: 28px;
+    color: #8B1E1E;
+}
+/*Fim Seção de localização */
