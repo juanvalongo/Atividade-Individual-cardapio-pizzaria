@@ -1,5 +1,10 @@
 body {
-    background-color: #FFF8ED;
+    background: linear-gradient(
+        to bottom,
+        #FFFFFF 0%,
+        #FFF8ED 45%,
+        #F5E6D3 100%
+    );
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -217,16 +222,22 @@ footer a:hover {
 }
 
 .link-cardapio {
-    color: #8B1E1E;
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 18px;
+    background-color: #8B1E1E;
+    color: #FFFFFF;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
     font-weight: bold;
-    cursor: pointer; /*Quando o usuário passar o mouse sobre o texto, o cursor muda para a "mãozinha". Isso fornece uma indicação visual importante: "Este elemento pode ser clicado."*/
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
 }
 
 .link-cardapio:hover {
-    text-decoration: underline;
-} /*.link-cardapio:hover seleciona os elementos que possuem a classe link-cardapio enquanto o mouse estiver sobre eles. 
-Assim, ao passar o mouse sobre o texto, a propriedade text-decoration: underline; adiciona um sublinhado, 
-criando um feedback visual familiar, semelhante ao comportamento dos links tradicionais.*/
+    transform: scale(1.03);
+    opacity: 0.9;
+}
 
 /*Início Seção de localização */
 .localizacao {
@@ -283,3 +294,4 @@ criando um feedback visual familiar, semelhante ao comportamento dos links tradi
     color: #8B1E1E;
 }
 /*Fim Seção de localização */
+
