@@ -1,7 +1,8 @@
 body {
+    margin: 0;
     background: linear-gradient(
         to bottom,
-        #FFFFFF 0%,
+        #FAEED6 0%,
         #FFF8ED 45%,
         #F5E6D3 100%
     );
@@ -21,7 +22,7 @@ h1{
 }
 
 
-.pagina-inicial {
+.titulo-secao {
     color: #8B1E1E;
     text-align: center;
     font-family: Arial, sans-serif;
