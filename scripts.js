@@ -7,13 +7,25 @@ pizzas.forEach(function(pizza) {
     const indicador = pizza.querySelector(".indicador-descricao");
 
     function alternarDescricao() {
-        descricao.classList.toggle("aberta");
+    descricao.classList.toggle("aberta");
 
-        if (indicador) {
-            if (descricao.classList.contains("aberta")) {
-                indicador.style.display = "none";
-            } else {
-                indicador.style.display = "block";
+    const imagem = pizza.querySelector(".imagem-produto");
+
+    if (descricao.classList.contains("aberta")) {
+            if (indicador) {
+                indicador.textContent = "▲";
+            }
+
+            if (imagem) {
+                imagem.style.display = "none";
+            }
+        } else {
+            if (indicador) {
+                indicador.textContent = "▼";
+            }
+
+            if (imagem) {
+                imagem.style.display = "block";
             }
         }
     }
