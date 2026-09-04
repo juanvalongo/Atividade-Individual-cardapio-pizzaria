@@ -113,6 +113,10 @@ footer a:hover {
     font-size: 18px;
 }
 
+.cabecalho-produto {
+    cursor: pointer;
+}
+
 .pizza strong,
 .pizza .descricao {
     cursor: pointer;
