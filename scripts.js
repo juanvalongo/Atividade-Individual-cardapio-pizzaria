@@ -1,14 +1,29 @@
 const pizzas = document.querySelectorAll(".pizza");
 
 pizzas.forEach(function(pizza) {
+    const cabecalho = pizza.querySelector(".cabecalho-produto");
     const nome = pizza.querySelector("strong");
     const descricao = pizza.querySelector(".descricao");
+    const indicador = pizza.querySelector(".indicador-descricao");
 
     function alternarDescricao() {
         descricao.classList.toggle("aberta");
+
+        if (indicador) {
+            if (descricao.classList.contains("aberta")) {
+                indicador.style.display = "none";
+            } else {
+                indicador.style.display = "block";
+            }
+        }
     }
 
-    nome.addEventListener("click", alternarDescricao);
+    if (cabecalho) {
+        cabecalho.addEventListener("click", alternarDescricao);
+    } else if (nome) {
+        nome.addEventListener("click", alternarDescricao);
+    }
+
     descricao.addEventListener("click", alternarDescricao);
 });
 

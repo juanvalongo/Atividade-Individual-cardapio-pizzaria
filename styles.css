@@ -98,6 +98,21 @@ footer a:hover {
     font-size: 16px;
 }
 
+.preco {
+    display: block;
+    margin-top: 6px;
+    color: #8B1E1E;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.indicador-descricao {
+    display: block;
+    margin-top: 10px;
+    color: #8B1E1E;
+    font-size: 18px;
+}
+
 .pizza strong,
 .pizza .descricao {
     cursor: pointer;
