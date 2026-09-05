@@ -114,7 +114,17 @@ footer a:hover {
 }
 
 .cabecalho-produto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     cursor: pointer;
+}
+
+.informacoes-produto {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
 }
 
 .pizza strong,
