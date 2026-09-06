@@ -336,5 +336,4 @@ o código utiliza o navigator.geolocation para solicitar ao navegador a permiss�
 se a permissão for concedida, ele obtém as coordenadas de latitude (posicao.coords.latitude) e longitude (posicao.coords.longitude), 
 que serão utilizadas na Etapa 9 para calcular a distância até a pizzaria; caso a permissão seja negada, 
 o código exibe uma mensagem informando que não foi possível obter a localização.*/
-
-  
+ 

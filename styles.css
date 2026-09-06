@@ -11,8 +11,8 @@ body {
     flex-direction: column;
 }
 
-h1{
-     color: #8B1E1E;
+h1 { 
+    color: #8B1E1E;
     text-align: center;
     font-family: Arial, sans-serif;
     font-size: 32px;
@@ -91,6 +91,10 @@ footer a:hover {
     margin-bottom: 12px;
 }
 
+.pizza {
+    min-width: 0;
+}
+
 .pizza strong,
 .sobremesa strong,
 .bebida strong {
@@ -124,7 +128,6 @@ footer a:hover {
     display: flex;
     align-items: center;
     gap: 15px;
-    width: 100%;
 }
 
 .pizza strong,
@@ -200,7 +203,6 @@ footer a:hover {
 
 .sugestao-chef {
     text-align: center;
-    
 }
 
 .conteudo-receita h3 {
@@ -390,4 +392,15 @@ footer a:hover {
     display: block;
     width: 100%;
     height: auto;
+}
+
+.pizza,
+.sobremesa,
+.bebida {
+    box-sizing: border-box;
+}
+
+.informacoes-produto strong {
+    min-width: 0;
+    overflow-wrap: break-word;
 }
