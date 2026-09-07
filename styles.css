@@ -170,6 +170,7 @@ footer a:hover {
 .imagem-produto {
     width: 120px;
     height: 120px;
+    margin: 0 auto;
     flex-shrink: 0;
 }
 
@@ -407,4 +408,39 @@ footer a:hover {
 .informacoes-produto strong {
     min-width: 0;
     overflow-wrap: break-word;
+}
+
+.parte-inferior {
+    display: flex;
+    justify-content: space-between;
+}
+
+.conteudo-produto {
+    width: 68%;
+}
+
+.acao-produto {
+    width: 28%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botao-pedido {
+    display: inline-block;
+    padding: 10px 14px;
+    background-color: #8B1E1E;
+    color: #FFFFFF;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.botao-pedido:hover {
+    transform: scale(1.03);
+    opacity: 0.9;
 }
