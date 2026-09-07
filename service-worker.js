@@ -1,4 +1,4 @@
-const CACHE_NAME = "pizzaria-patio-v10"; //Criamos primeiro um nome para o nosso cache. O v9 representa a versão do cache.
+const CACHE_NAME = "pizzaria-patio-v12"; //Nome e versão atual do cache.
 
 const ARQUIVOS_CACHE = [ //Depois criamos uma lista dos arquivos fundamentais para nossa aplicação
     "index.html",
@@ -21,22 +21,53 @@ self.addEventListener("install", function(event) {
     self.skipWaiting(); //Não fique aguardando o Service Worker antigo terminar. Quero que esta nova versão seja ativada.
 });
 
-//  self.addEventListener("activate", function(event) {
-//      event.waitUntil(
-//          caches.keys().then(function(nomesCaches) {
-//              return Promise.all(
-//                  nomesCaches.map(function(nomeCache) {
-//                      if (nomeCache !== CACHE_NAME) {
-//                          return caches.delete(nomeCache);
-//                      }
-//                  })
-//              );
-//          })
-//      );
-//      self.clients.claim(); //Depois de ativado, passe a controlar imediatamente as páginas abertas.
-//  });
+//Depois que não houverem mais atualizações no projeto, podemos comentar o bloco de código abaixo, pois ele é responsável por apagar os caches antigos.
+self.addEventListener("activate", function(event) {
+      event.waitUntil(
+         caches.keys().then(function(nomesCaches) {
+              return Promise.all(
+                  nomesCaches.map(function(nomeCache) {
+                      if (nomeCache !== CACHE_NAME) {
+                          return caches.delete(nomeCache);
+                      }
+                  })
+              );
+          })
+      );
+      self.clients.claim(); //Depois de ativado, passe a controlar imediatamente as páginas abertas.
+});
+//Depois que não houverem mais atualizações no projeto, podemos comentar o bloco de código acima, pois ele é responsável por apagar os caches antigos.
+
+
 
 self.addEventListener("fetch", function(event) {
+
+    if (event.request.destination === "image") {
+        event.respondWith(
+            caches.match(event.request)
+                .then(function(resposta) {
+
+                    if (resposta) {
+                        return resposta;
+                    }
+
+                    return fetch(event.request)
+                        .then(function(resposta) {
+
+                            const respostaClone = resposta.clone();
+
+                            caches.open(CACHE_NAME)
+                                .then(function(cache) {
+                                    cache.put(event.request, respostaClone);
+                                });
+
+                            return resposta;
+                        });
+                })
+        );
+
+        return;
+    }
 
     if (event.request.url.includes("themealdb.com")) {
          event.respondWith(
