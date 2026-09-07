@@ -43,14 +43,41 @@ pizzas.forEach(function(pizza) {
 const sobremesas = document.querySelectorAll(".sobremesa");
 
 sobremesas.forEach(function(sobremesa) {
+    const cabecalho = sobremesa.querySelector(".cabecalho-produto");
     const nome = sobremesa.querySelector("strong");
     const descricao = sobremesa.querySelector(".descricao");
+    const indicador = sobremesa.querySelector(".indicador-descricao");
 
     function alternarDescricao() {
         descricao.classList.toggle("aberta");
+
+        const imagem = sobremesa.querySelector(".imagem-produto");
+
+        if (descricao.classList.contains("aberta")) {
+            if (indicador) {
+                indicador.textContent = "▲";
+            }
+
+            if (imagem) {
+                imagem.style.display = "none";
+            }
+        } else {
+            if (indicador) {
+                indicador.textContent = "▼";
+            }
+
+            if (imagem) {
+                imagem.style.display = "block";
+            }
+        }
     }
 
-    nome.addEventListener("click", alternarDescricao);
+    if (cabecalho) {
+        cabecalho.addEventListener("click", alternarDescricao);
+    } else if (nome) {
+        nome.addEventListener("click", alternarDescricao);
+    }
+
     descricao.addEventListener("click", alternarDescricao);
 });
 
