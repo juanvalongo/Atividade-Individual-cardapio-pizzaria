@@ -213,10 +213,20 @@ fetch(url) //fetch() é uma função do JavaScript usada para fazer uma requisi�
         const linkCardapio = document.querySelector("#link-cardapio"); //Procura no HTML o elemento que acabamos de criar: <p id="link-cardapio"> e guarda esse elemento na variável linkCardapio.
 
         linkCardapio.addEventListener("click", function() { //"Quando o usuário clicar no linkCardapio, execute o código que está dentro das {}."
-            const pizza = document.getElementById(idPizza); //Dentro do evento, acontece uma das partes mais interessantes: primeiro, const pizza = document.getElementById(idPizza); busca no HTML o elemento correspondente à pizza sorteada pela API. Por exemplo, se a API sorteou Cassava pizza e anteriormente definimos idPizza = "cassava-pizza", então document.getElementById(idPizza) é equivalente a document.getElementById("cassava-pizza"). Dessa forma, o código consegue encontrar no HTML o elemento <li id="cassava-pizza" class="pizza">, que corresponde à pizza sorteada.
-            
+            const pizza = document.getElementById(idPizza);
             const descricao = pizza.querySelector(".descricao");
+            const imagem = pizza.querySelector(".imagem-produto");
+            const indicador = pizza.querySelector(".indicador-descricao");
+
             descricao.classList.add("aberta");
+
+            if (imagem) {
+                imagem.style.display = "none";
+            }
+
+            if (indicador) {
+                indicador.textContent = "▲";
+            }
                         
             pizza.scrollIntoView({ //manda o navegador rolar a página até aquele elemento.
                 behavior: "smooth", //O smooth faz a página rolar suavemente, em vez de simplesmente "pular".
